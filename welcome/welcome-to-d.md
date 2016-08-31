@@ -42,7 +42,7 @@ Premi il pulsante esegui (o `Ctrl-Invio`) per compilarlo ed eseguirlo.
 
 ### Contribuire al tour
 
-Questo tour è [open source](https://github.com/stonemaster/dlang-tour)
+Questo tour è [open source](https://github.com/dlang-tour)
 e siamo aperti a pull requests per renderlo ancora migliore.
 
 ## {SourceCode}
