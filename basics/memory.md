@@ -1,4 +1,4 @@
-# Memory
+# Memoria
 
 Il D è un linguaggio di sistema, e questo ci permette di utilizzare direttamente la
 memoria. Tuttavia, manipolare la memoria è un'attività soggetta ad errori e
