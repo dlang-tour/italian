@@ -80,7 +80,8 @@ void main()
     // è consentito
     const int* cm = &m;
     writeln("cm: ", typeof(cm).stringof);
-    // Per definizione `const` non può essere modificato:
+    // Per definizione `const` non
+    // può essere modificato:
     // *cm = 100; // errore!
 
     // Si garantisce che un `immutable` rimarrà
