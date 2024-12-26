@@ -5,11 +5,11 @@ ordering:
 - memory
 - type-qualifiers
 - controlling-flow
-#- functions
-#- structs
-#- arrays
-#- slices
-#- alias-strings
+- functions
+- structs
+- arrays
+- slices
+- alias-strings
 #- loops
 #- foreach
 #- ranges
