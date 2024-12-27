@@ -1,7 +1,7 @@
 Italian translation of the DLang Tour
 ====================================
 
-[![Build Status](https://travis-ci.org/dlang-tour/italian.svg?branch=master)](https://travis-ci.org/dlang-tour/italian)
+[![sanitycheck build status](https://github.com/dlang-tour/italian/actions/workflows/d.yml/badge.svg)](https://github.com/dlang-tour/italian/actions/workflows/d.yml)
 
 Found a typo or want to improve the content?
 Just click on "edit" and send us the pull request.
