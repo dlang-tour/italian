@@ -1,6 +1,6 @@
 # Come installare D sul proprio computer
 
-All'interno del sito internet del linguaggio D [dlang.org](https://dlang.org) è possibile [scaricare](http://dlang.org/download.html) l'ultima versione del compilatore di riferimento **DMD** (Digital Mars D):
+Sul sito ufficiale del linguaggio D [dlang.org](https://dlang.org) è possibile [scaricare](http://dlang.org/download.html) l'ultima versione del compilatore di riferimento **DMD** (Digital Mars D):
 
 ### Windows
 
@@ -16,9 +16,10 @@ All'interno del sito internet del linguaggio D [dlang.org](https://dlang.org) è
 
 ### Linux / FreeBSD
 
-Per installare DMD nella propria cartella `user` è sufficiente eseguire il comando `curl -fsS https://dlang.org/install.sh | bash -s dmd`.
+Per installare DMD nella propria directory utente è sufficiente eseguire:
+`curl -fsS https://dlang.org/install.sh | bash -s dmd`
 
-Sono disponibili pacchetti per varie distribuzioni:
+Sono disponibili pacchetti per diverse distribuzioni:
 
 * [ArchLinux](https://wiki.archlinux.org/index.php/D_(programming_language))
 * [Debian/Ubuntu](http://d-apt.sourceforge.net).
@@ -28,12 +29,32 @@ Sono disponibili pacchetti per varie distribuzioni:
 
 ### Altri compilatori
 
-Oltre al compilatore di riferimento DMD, che utilizza un proprio backend, esistono altri due compilatori che si possono anch'essi trovare nella sezione download di
-[dlang.org](https://dlang.org):
+Oltre al compilatore di riferimento DMD, che utilizza un proprio backend, sono disponibili altri due compilatori che si possono trovare nella sezione download di [dlang.org](https://dlang.org):
 
-* [**GDC**](http://gdcproject.org/downloads), che utilizza il backend di GCC
-* [**LDC**](https://github.com/ldc-developers/ldc#installation) basato sul backend LLVM
+* [**LDC**](https://github.com/ldc-developers/ldc#installation), basato sul backend LLVM
+* [**GDC**](http://gdcproject.org/downloads), che utilizza il backend GCC
 
-GDC e LDC non sono sempre aggiornati alla versione più recente del frontend di DMD, ma forniscono maggiori livelli di ottimizzazione, oltre a supportare piattaforme differenti, come ad esempio ARM.
+LDC e GDC non sono sempre aggiornati all'ultima versione del frontend DMD, ma offrono livelli di ottimizzazione superiori e supportano piattaforme aggiuntive, come ARM.
 
-Per maggiori informazioni è possibile consultare la [wiki](https://wiki.dlang.org/Compilers).
+Per maggiori informazioni consultare la [wiki](https://wiki.dlang.org/Compilers).
+
+## Configurare il proprio editor
+
+La bellezza di D sta nel fatto che non serve un IDE sofisticato. Tuttavia, programmare in D è più piacevole quando si è nella zona di comfort del proprio editor preferito.
+Esistono plugin D per almeno i seguenti editor:
+
+- [Atom](https://github.com/Pure-D/atomize-d)
+- [Eclipse](http://ddt-ide.github.io)
+- [Emacs](https://github.com/Emacs-D-Mode-Maintainers/Emacs-D-Mode)
+- [IntelliJ](https://github.com/intellij-dlanguage/intellij-dlanguage)
+- [Sublime Text](https://github.com/yazd/DKit)
+- [Vim](https://wiki.dlang.org/D_in_Vim)
+- [VS Code](https://marketplace.visualstudio.com/items/webfreak.code-d)
+- [__Visual Studio__](http://rainers.github.io/visuald/visuald/StartPage.html)
+
+È anche possibile provare un IDE dedicato a D:
+
+- [Dlang IDE](https://github.com/buggins/dlangide)
+
+La wiki di D contiene una panoramica più dettagliata degli [editor](https://wiki.dlang.org/Editors) e [IDE](https://wiki.dlang.org/IDEs) disponibili.
+

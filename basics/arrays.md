@@ -1,19 +1,17 @@
 # Array
 
-In D esistono due tipi di Array: **statici** e **dinamici**.
-L'accesso agli array di qualsiasi tipo viene controllato per verificare che sia all'interno dei limiti (tranne quando il compilatore può dimostrare
-che i controlli dei limiti non sono necessari).
-Un controllo dei limiti fallito produce un `RangeError` che interrompe l'applicazione.
-I più temerari possono disabilitare questa funzione di sicurezza con il
-flag del compilatore `-boundscheck=off`
-per ottenere miglioramenti delle prestazioni a scapito della sicurezza.
+In D esistono due tipi di array: **statici** e **dinamici**.
+Il linguaggio effettua automaticamente controlli sui limiti degli array durante l'accesso agli elementi (eccetto quando il compilatore può dimostrare che questi controlli sono superflui).
+Se si tenta di accedere a un indice fuori dai limiti, viene generato un `RangeError` che termina l'esecuzione del programma.
+Per ottenere migliori prestazioni, è possibile disabilitare questi controlli usando il flag del compilatore `-boundscheck=off`, anche se questo può compromettere la sicurezza dell'applicazione.
 
 ### Array Statici
 
-Gli array statici sono memorizzati nello stack se definiti all'interno di una funzione,
-o nella memoria statica altrimenti. Hanno una lunghezza fissa,
-nota al momento della compilazione. Il tipo di un array statico include
-la dimensione fissa:
+Gli array statici vengono allocati:
+- nello stack se definiti all'interno di una funzione
+- nella memoria statica negli altri casi
+
+Hanno una dimensione fissa che deve essere nota al momento della compilazione. Il tipo di un array statico include la sua dimensione:
 
     int[8] arr;
 
@@ -22,11 +20,9 @@ accanto al tipo, e non dopo il nome della variabile come in C/C++.
 
 ### Array Dinamici
 
-Gli array dinamici sono memorizzati nell'heap e possono essere espansi
-o ridotti durante l'esecuzione. Un array dinamico viene creato usando un'espressione `new`
-e la sua lunghezza:
+Gli array dinamici vengono allocati nell'heap e possono essere ridimensionati durante l'esecuzione. Si creano usando l'operatore `new` specificando la dimensione iniziale:
 
-    int size = 8; // variabile runtime
+    int size = 8; // dimensione definita a runtime
     int[] arr = new int[size];
 
 Il tipo di `arr` è `int[]`, che viene anche chiamato **slice**. Le slice

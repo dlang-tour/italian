@@ -1,10 +1,10 @@
 # I tipi di base
 
-D fornisce un insieme di tipi base che hanno sempre la stessa
-dimensione **a presicendere** dalla piattaforma.
-Unica eccezione è il tipo `real`, che è dotato della massima precisione
-in virgola mobile. Non c'è comunque differenza di dimensioni di un
-intero, anche se l'applicazione viene compilata su sistemi a 32 o 64 bit.
+D fornisce un insieme di tipi base che mantengono la stessa
+dimensione **indipendentemente** dalla piattaforma.
+L'unica eccezione è il tipo `real`, che fornisce la massima precisione
+in virgola mobile disponibile. Non esistono differenze nelle dimensioni degli
+interi, anche quando l'applicazione viene compilata su sistemi a 32 o 64 bit.
 
 | tipo                          | dimensione
 |-------------------------------|------------
@@ -22,24 +22,24 @@ intero, anche se l'applicazione viene compilata su sistemi a 32 o 64 bit.
 |`double` | 64-bit
 |`real`   | >= 64-bit (generalmente 64-bit, ma 80-bit su piattaforme Intel x86 a 32-bit)
 
-Il prefisso `u` indica tipi *senza segno*. `char` traduce in caratteri UTF-8,
-`wchar` viene usato nelle stringhe UTF-16 e i `dchar`
-nelle stringhe UTF-32.
+Il prefisso `u` denota i tipi *senza segno* (unsigned). `char` rappresenta caratteri UTF-8,
+`wchar` viene utilizzato per le stringhe UTF-16 e `dchar`
+per le stringhe UTF-32.
 
-Una conversione tra variabili di tipi differenti, viene permessa
-dal compilatore solo se non c'è perdita di precisione.
-Tuttavia, una coversione tra tipi in virgola mobile (es: da `double` a `float`)
-è sempre permessa.
+Il compilatore permette la conversione tra variabili di tipi differenti
+solo quando non si verifica perdita di precisione.
+Tuttavia, le conversioni tra tipi in virgola mobile (es: da `double` a `float`)
+sono sempre consentite.
 
-Una conversione in un altro tipo può essere forzata usando un espressione
-`cast(TYPE) myVar`. Va usata comunque con molta attenzione, in quanto
-l' espressione `cast` forza il meccanismo dei tipi.
+È possibile forzare la conversione in un altro tipo utilizzando l'espressione
+`cast(TYPE) myVar`. Questa operazione va utilizzata con cautela, poiché
+il `cast` bypassa il sistema di controllo dei tipi.
 
-La speciale keyword `auto` crea una variabile e ne deduce il tipo dalla parte destra
-dell' espressione.
-`auto myVar = 7` assegna automaticamente il tipo `int` alla variabile `myVar`.
-Notate che il tipo viene assegnato in fase di compilazione e non può essere cambiato. Come
-se alla variabile fosse stato espressamente assegnato un tipo.
+La keyword `auto` permette di dichiarare una variabile lasciando che il compilatore
+ne deduca il tipo dall'espressione di inizializzazione.
+Per esempio, `auto myVar = 7` assegnerà automaticamente il tipo `int` alla variabile `myVar`.
+È importante notare che il tipo viene determinato durante la compilazione e non può essere
+modificato successivamente, esattamente come se fosse stato dichiarato esplicitamente.
 
 ### Le proprietà dei tipi
 

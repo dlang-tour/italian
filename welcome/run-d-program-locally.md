@@ -1,25 +1,25 @@
 # Eseguire programmi D sul proprio computer
 
-Il linguaggio D è accompagnato non solo dal compilatore `dmd`, ma anche dallo pseudo-interprete `rdmd` e dal gestore di librerie `dub`.
+Il linguaggio D viene distribuito con il compilatore `dmd`, lo pseudo-interprete `rdmd` e il gestore di pacchetti `dub`.
 
 ### Il compilatore DMD
 
-Il compilatore *DMD* compila file D e genera un file binario eseguibile.
-Nella riga di comando *DMD* dev'essere invocato specificando la lista dei file da compilare:
+Il compilatore *DMD* compila i file D e genera un file binario eseguibile.
+Da riga di comando, *DMD* va invocato specificando i file da compilare:
 
     dmd esempio.d
 
-Il comportamento del compilatore può essere modificato in molti modi.
-L'elenco completo delle opzioni si può trovare nella [documentazione online](https://dlang.org/dmd.html#switches) o eseguendo `dmd --help`.
+È possibile modificare il comportamento del compilatore in diversi modi.
+L'elenco completo delle opzioni è disponibile nella [documentazione online](https://dlang.org/dmd.html#switches) o digitando `dmd --help`.
 
-### Compilazione al volo con `rdmd`
+### Compilazione ed esecuzione immediata con `rdmd`
 
-Il programma `rdmd`, distribuito congiuntamente al compilatore DMD,
-garantisce che il file e tutte le sue dipendenze siano compilate ed esegue automaticamente l'applicazione prodotta:
+Il programma `rdmd`, incluso nella distribuzione del compilatore DMD,
+si occupa di compilare il file e tutte le sue dipendenze, eseguendo poi automaticamente l'applicazione:
 
     rdmd esempio.d
 
-Su sistemi UNIX la riga shebang `#!/usr/bin/env rdmd`, posta all'inizio di un file D, ne permette l'esecuzione diretta come se si trattasse di uno script.
+Sui sistemi UNIX, aggiungendo la riga shebang `#!/usr/bin/env rdmd` all'inizio di un file D, è possibile eseguirlo direttamente come uno script.
 
 L'elenco delle opzioni si può trovare nella [documentazione online](https://dlang.org/rdmd.html) o eseguendo `rdmd --help`.
 

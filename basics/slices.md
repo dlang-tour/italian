@@ -1,51 +1,44 @@
 # Slice
 
-Le slice sono oggetti di tipo `T[]` per qualsiasi tipo `T` dato.
-Le slice forniscono una vista su un sottoinsieme di un array
-di valori `T` - o semplicemente puntano all'intero array.
-**Le slice e gli array dinamici sono la stessa cosa.**
+Le slice sono oggetti di tipo `T[]` per qualsiasi tipo `T`.
+Rappresentano una vista su un sottoinsieme di un array di valori `T`, oppure sull'intero array.
+**In D, le slice e gli array dinamici sono la stessa cosa.**
 
-Una slice è composta da due membri - un puntatore all'elemento iniziale e la
-lunghezza della slice:
+Una slice è composta da due elementi:
+- Un puntatore all'elemento iniziale
+- La lunghezza della slice:
 
     T* ptr;
-    size_t length; // unsigned 32 bit su 32bit, unsigned 64 bit su 64bit
+    size_t length; // unsigned 32 bit su sistemi a 32bit, unsigned 64 bit su sistemi a 64bit
 
-### Ottenere una slice tramite nuova allocazione
+### Creazione di una slice tramite allocazione
 
-Quando viene creato un nuovo array dinamico, viene restituita una slice
-alla memoria appena allocata:
+Quando si crea un nuovo array dinamico, viene restituita una slice che punta alla memoria appena allocata:
 
     auto arr = new int[5];
-    assert(arr.length == 5); // memoria referenziata in arr.ptr
+    assert(arr.length == 5); // la memoria è referenziata in arr.ptr
 
-In questo caso, la memoria effettivamente allocata è completamente gestita dal garbage
-collector. La slice restituita agisce come una "vista" sugli elementi sottostanti.
+In questo caso, la memoria allocata è gestita automaticamente dal garbage collector. La slice funge da "vista" sugli elementi sottostanti.
 
-### Ottenere una slice sulla memoria esistente
+### Creazione di una slice su memoria esistente
 
-Utilizzando un operatore di slicing si può anche ottenere una slice che punta a della memoria
-già esistente. L'operatore di slicing può essere applicato a un'altra slice, array statici,
-struct/classi che implementano `opSlice` e alcune altre entità.
+È possibile ottenere una slice che punta a memoria già esistente utilizzando l'operatore di slicing. Questo operatore può essere applicato a:
+- Un'altra slice
+- Array statici
+- Struct/classi che implementano `opSlice`
+- Altre entità compatibili
 
-In un'espressione di esempio `origin[start .. end]`, l'operatore di slicing viene utilizzato per ottenere
-una slice di tutti gli elementi di `origin` da `start` fino all'elemento _prima_ di `end`:
+Nell'espressione `origin[start .. end]`, l'operatore di slicing crea una vista di tutti gli elementi di `origin` da `start` fino all'elemento _precedente_ a `end`:
 
     auto newArr = arr[1 .. 4]; // l'indice 4 NON è incluso
     assert(newArr.length == 3);
-    newArr[0] = 10; // modifica newArr[0] ovvero arr[1]
+    newArr[0] = 10; // modifica newArr[0] che corrisponde ad arr[1]
 
-Tali slice generano una nuova vista sulla memoria esistente. *Non* creano
-una nuova copia. Se nessuna slice mantiene più un riferimento a quella memoria - o a una parte
-*affettata* di essa - questa verrà liberata dal garbage collector.
+Le slice creano una nuova vista sulla memoria esistente, *non* una copia dei dati. La memoria verrà liberata dal garbage collector solo quando nessuna slice mantiene più riferimenti ad essa o a una sua parte.
 
-Usando le slice, è possibile scrivere codice molto efficiente per cose (come i parser, per esempio)
-che operano solo su un blocco di memoria, e ne estraggono solo le parti su cui devono
-effettivamente lavorare. In questo modo, non c'è bisogno di allocare nuovi blocchi di memoria.
+Grazie alle slice, è possibile scrivere codice molto efficiente per operazioni che lavorano su blocchi di memoria (come i parser), accedendo solo alle porzioni di interesse senza necessità di nuove allocazioni.
 
-Come visto nella [sezione precedente](basics/arrays), l'espressione `[$]` è una forma abbreviata per
-`arr.length`. Quindi `arr[$]` indicizza l'elemento successivo alla fine della slice, e
-genererebbe un `RangeError` (se il controllo dei limiti non è stato disabilitato).
+Come visto nella [sezione precedente](basics/arrays), `[$]` è una sintassi abbreviata per `arr.length`. Quindi `arr[$]` tenta di accedere all'elemento oltre la fine della slice, generando un `RangeError` (se i controlli dei limiti sono attivi).
 
 ### Approfondimenti
 
