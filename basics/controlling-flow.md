@@ -1,7 +1,7 @@
 # Controllo di flusso
 
-Il flusso di esecuzione di un applicazione può essere condizionato dalle
-istruzioni `if` e `else`:
+Il flusso di esecuzione di un'applicazione può essere controllato attraverso le
+istruzioni `if` ed `else`:
 
     if (a == 5) {
         writeln("Condizione verificata");
@@ -11,24 +11,22 @@ istruzioni `if` e `else`:
         writeln("Nessuna condizione verificata!");
     }
 
-Quando i blocchi di `if` o `else` contengono solo un'istruzione,
-le parentesi graffe posso essere omesse.
+Quando i blocchi `if` o `else` contengono una singola istruzione,
+le parentesi graffe possono essere omesse.
 
-D fornisce gli stessi operatori del C/C++ e del java per comparare
-le variabili tra loro:
+D fornisce gli stessi operatori di confronto presenti in C/C++ e Java:
 
-* `==` e `!=` per testare uguaglianza e disuguaglianza
-* `<`, `<=`, `>` e `>=` per il test di minore (o minore eguale) e maggiore (o minore eguale)
+* `==` e `!=` per verificare uguaglianza e disuguaglianza
+* `<`, `<=`, `>` e `>=` per confrontare se un valore è minore (o minore uguale) e maggiore (o maggiore uguale)
 
-Per combinare tra loro più condizioni, l'operatore || rappresenta
-l'*OR* logico, e `&&` l'*AND* logico.
+Per combinare più condizioni, si usa l'operatore `||` per l'*OR* logico
+e `&&` per l'*AND* logico.
 
-D fornisce anche un'istruzione `switch`..`case` che permette di eseguire
-un case dipendente dal valore di *una* variabile.
-`switch` funziona con tutti i tipi base comprese le stringhe!
-È persino possibile definire dei range per i tipi interi utilizzando
-la sintassi `case START: .. case END:`.
-Assicuratevi di dare un'occhiata al codice sorgente d'esempio.
+L'istruzione `switch`..`case` permette di eseguire codice diverso in base al
+valore di una variabile. In D, `switch` funziona con tutti i tipi base,
+stringhe incluse! Per i tipi interi, è possibile definire anche intervalli
+di valori usando la sintassi `case START: .. case END:`.
+Dai un'occhiata al codice di esempio per vedere come funziona.
 
 ### Approfondimenti
 

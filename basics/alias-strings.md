@@ -5,16 +5,16 @@ nuovi costrutti in una riga:
 
     alias string = immutable(char)[];
 
-Il termine `string` è definito da un'istruzione `alias` che lo definisce
-come una slice di `immutable(char)`. Questo significa che una volta che una `string` è stata costruita,
-il suo contenuto non cambierà mai più. E in effetti questa è la seconda
-introduzione: benvenuta stringa UTF-8!
+Il termine `string` è definito tramite un'istruzione `alias` che lo dichiara
+come una slice di `immutable(char)`. Questo significa che, una volta creata, una `string`
+non potrà mai essere modificata. Ed è proprio questa la seconda novità importante:
+benvenute stringhe UTF-8!
 
-Grazie alla loro immutabilità, le `string` possono essere condivise perfettamente tra
-thread diversi. Poiché `string` è una slice, si possono estrarre parti di essa senza
-allocare memoria. La funzione standard
+Grazie alla loro immutabilità, le `string` possono essere condivise in modo sicuro tra
+thread diversi. Inoltre, essendo slice, è possibile estrarne porzioni senza
+allocare nuova memoria. Ad esempio, la funzione standard
 [`std.algorithm.splitter`](https://dlang.org/phobos/std_algorithm_iteration.html#.splitter)
-per esempio, divide una stringa per newline senza alcuna allocazione di memoria.
+divide una stringa in base ai caratteri di accapo senza effettuare alcuna allocazione.
 
 Oltre alla `string` UTF-8, ci sono altri due tipi:
 
@@ -29,12 +29,11 @@ il metodo `to` da `std.conv`:
 
 ### Stringhe Unicode
 
-Questo significa che una semplice `string` è definita come un array di [code unit](http://unicode.org/glossary/#code_unit) Unicode a 8 bit. Tutte le operazioni sugli array possono essere
-usate sulle stringhe, ma funzioneranno a livello di code unit e non a livello di carattere. Allo
-stesso tempo, gli algoritmi della libreria standard interpreteranno le `string` come sequenze
-di [code point](http://unicode.org/glossary/#code_point), ed esiste anche
-l'opzione per trattarle come sequenze di
-[grafemi](http://unicode.org/glossary/#grapheme) usando esplicitamente
+Una `string` è definita come un array di [code unit](http://unicode.org/glossary/#code_unit) Unicode a 8 bit.
+Tutte le operazioni disponibili per gli array possono essere applicate alle stringhe, ma agiranno a livello di code unit
+e non di carattere. Gli algoritmi della libreria standard, invece, interpretano le `string` come sequenze
+di [code point](http://unicode.org/glossary/#code_point). È anche possibile trattarle come sequenze di
+[grafemi](http://unicode.org/glossary/#grapheme) utilizzando esplicitamente
 [`std.uni.byGrapheme`](https://dlang.org/library/std/uni/by_grapheme.html).
 
 Questo piccolo esempio illustra la differenza di interpretazione:

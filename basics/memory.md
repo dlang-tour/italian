@@ -1,37 +1,32 @@
 # Memoria
 
-Il D è un linguaggio di sistema, e questo ci permette di utilizzare direttamente la
-memoria. Tuttavia, manipolare la memoria è un'attività soggetta ad errori e
-per questo il D utilizza di default un *garbage collector* che gestisce l'allocazione della
-memoria.
+Il D è un linguaggio di sistema che permette di manipolare direttamente la memoria. Poiché la gestione manuale della memoria è soggetta a errori, D utilizza per default un *garbage collector* che ne automatizza l'allocazione e la deallocazione.
 
-D fornisce tipi puntatori come nel C:
+Come in C, D fornisce il supporto ai puntatori:
 
     int a;
     int* b = &a; // b contiene l'indirizzo di a
-    auto c = &a; // c è int* e contiene l'indirizzo di a
+    auto c = &a; // c è di tipo int* e contiene l'indirizzo di a
 
-Un nuovo blocco di memoria nell'heap viene allocato utilizzando l'espressione
-`new`, che ritorna un puntatore alla memoria gestita:
+Per allocare un nuovo blocco di memoria nell'heap si utilizza l'operatore `new`, che restituisce un puntatore alla memoria allocata:
 
     int* a = new int;
 
-Come la memoria che viene referenziata da `a` non viene più referenziata da altre
-variabili nel programma, il garbage collector libererà la sua memoria.
+Quando la memoria puntata da `a` non è più referenziata da nessuna variabile nel programma, il garbage collector si occuperà automaticamente di liberarla.
 
-D prevede tre livelli di sicurezza per le funzioni: `@system`, `@trusted`, e `@safe`.
-Se non diversamente specificato, il default è `@system`.
-`@safe` è un sottoinsieme di D pensato per prevenire errori di memoria.
-Codice `@safe` può chiamare solo altro codice `@safe` o funzioni `@trusted`.
-Inoltre, l'uso esplicito dell'aritmetica dei puntatori non è permessa in codice `@safe`:
+D implementa tre livelli di sicurezza per le funzioni: `@system`, `@trusted`, e `@safe`.
+- `@system` è il livello predefinito
+- `@safe` è un sottoinsieme di D progettato per prevenire errori di gestione della memoria
+- `@trusted` sono funzioni verificate manualmente che fungono da ponte tra il codice safe e le operazioni di basso livello
+
+Il codice marcato come `@safe` può chiamare solo altro codice `@safe` o funzioni `@trusted`.
+Inoltre, in codice `@safe` non è permessa l'aritmetica dei puntatori esplicita:
 
     void main() @safe {
         int a = 5;
         int* p = &a;
-        int* c = p + 5; // errore
+        int* c = p + 5; // errore: l'aritmetica dei puntatori non è permessa in codice @safe
     }
-
-Le funzioni `@trusted` sono funzioni verificate manualmente che fungono da ponte tra SafeD e il sottostante mondo del basso livello.
 
 ### Approfondimenti
 

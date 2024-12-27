@@ -1,24 +1,24 @@
 # Array Associativi
 
-D ha incorporati gli *array associativi*, noti anche come hashmap.
-Un array associativo con un tipo di chiave `string` e un tipo di valore
-`int` si dichiara come segue:
+D dispone nativamente di *array associativi*, conosciuti anche come hashmap.
+Un array associativo con chiavi di tipo `string` e valori di tipo `int`
+si dichiara in questo modo:
 
     int[string] arr;
 
-Il valore può essere acceduto tramite la sua chiave e quindi essere impostato:
+I valori possono essere inseriti e acceduti utilizzando la loro chiave:
 
     arr["key1"] = 10;
 
-Per verificare se una chiave è presente nell'array associativo, si può
-utilizzare l'espressione `in`:
+Per verificare la presenza di una chiave nell'array associativo, è possibile
+utilizzare l'operatore `in`:
 
     if ("key1" in arr)
         writeln("Yes");
 
-L'espressione `in` restituisce un puntatore al valore se questo
-può essere trovato o un puntatore `null` altrimenti. Quindi il controllo dell'esistenza
-e la scrittura possono essere convenientemente combinati:
+L'operatore `in` restituisce un puntatore al valore se questo esiste,
+altrimenti restituisce un puntatore `null`. Questo permette di combinare
+in modo elegante il controllo dell'esistenza con l'assegnazione:
 
     if (auto val = "key1" in arr)
         *val = 20;

@@ -1,22 +1,21 @@
 # Imports e moduli
 
-Per creare un semplice programma ciao mondo in D, sono necessari degli `import`.
-Le istruzioni `import` permettono di accedere alle funzioni e ai tipi pubblici di un dato **modulo**.
+Per creare un programma "Hello World" in D, è necessario utilizzare gli `import`.
+Le istruzioni `import` consentono di accedere alle funzioni e ai tipi pubblici definiti in un **modulo**.
 
-La libreria standard, chiamata [Phobos](https://dlang.org/phobos/),
-è collocata nel **package** `std`
-e i suoi moduli sono referenziati con l' uso della riga `import std.MODULE`.
+La libreria standard di D, chiamata [Phobos](https://dlang.org/phobos/),
+si trova nel **package** `std`.
+Per utilizzare i suoi moduli, si usa la sintassi `import std.MODULE`.
 
-L'istruzione `import` permette anche di selezionare uno specifico simbolo dal modulo:
+È possibile importare selettivamente specifici simboli da un modulo:
 
     import std.stdio : writeln, writefln;
 
-Queste importazioni selettive possono essere utilizzate per migliorare la leggibilità del codice
-palesando l'origine di un determinato simbolo. Previene inoltre la collisione di simboli che hanno
-lo stesso nome, ma origini differenti.
+Questi import selettivi hanno due vantaggi:
+- Rendono il codice più leggibile, evidenziando la provenienza dei simboli
+- Prevengono conflitti tra simboli con lo stesso nome provenienti da moduli diversi
 
-Un istruzione `import` non deve necessariamente apparire in cima al listato del codice sorgente.
-Può essere tranquillamente usata all' interno di funzioni o da altre parti.
+A differenza di altri linguaggi, in D le istruzioni `import` non devono necessariamente essere posizionate all'inizio del file. Possono essere utilizzate all'interno di funzioni o in qualsiasi altro punto del codice.
 
 ## {SourceCode}
 
@@ -24,7 +23,7 @@ Può essere tranquillamente usata all' interno di funzioni o da altre parti.
 void main()
 {
     import std.stdio;
-    // oppure import std.stdio : writeln;
+    // in alternativa: import std.stdio : writeln;
     writeln("Ciao Mondo!");
 }
 ```
