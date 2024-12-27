@@ -30,6 +30,8 @@ Congratulazioni per aver completato le basi! Ora puoi esplorare le sezioni più 
 
 ### Supporto
 
-* Chiedi aiuto sul canale IRC [#d](irc://irc.freenode.net/d) su Freenode ([web client](https://kiwiirc.com/client/irc.freenode.net/d))
+
+* Chiedi aiuto sul canale IRC [#d](irc://irc.libera.chat/d) su Libera Chat ([web client](https://web.libera.chat/))
 * Poni domande su [D.learn](http://forum.dlang.org/group/learn)
-* Segnala problemi sul [bug tracker](https://issues.dlang.org)
+* Chiedi aiuto su [discord](https://discord.com/channels/242094594181955585)
+* Segnala problemi su [github](https://github.com/dlang)
